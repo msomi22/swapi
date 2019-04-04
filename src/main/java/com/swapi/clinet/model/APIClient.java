@@ -3,6 +3,7 @@ package com.swapi.clinet.model;
 import javax.ws.rs.core.HttpHeaders;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 import com.sun.jersey.api.client.Client;
@@ -11,10 +12,12 @@ import com.sun.jersey.api.client.WebResource;
 import com.swapi.clinet.entity.People;
 import com.swapi.clinet.entity.Planet;
 import com.swapi.clinet.entity.StarShip;
+import com.swapi.clinet.entity.bean.Person;
 import com.swapi.clinet.repository.PeopeRespository;
 import com.swapi.clinet.repository.PlanetRepository;
 import com.swapi.clinet.repository.StarShipRepository;
 
+@Service
 public class APIClient {
 
 	private static String BASE_URI  = "https://swapi.co/api/";
@@ -29,9 +32,9 @@ public class APIClient {
 	public static void main(String[] args) {
 
 		APIClient clinet = new APIClient();
-		//clinet.getPeople(3);
+		clinet.getPeople(3);
 		//clinet.getPlanet(4);
-		clinet.getStarship(3);
+		//clinet.getStarship(3);
 
 
 	}
@@ -58,8 +61,13 @@ public class APIClient {
 
 		Gson g = new Gson(); 
 		People person = g.fromJson(output, People.class);
-		System.out.println(person);
-		//peopleRepo.save(person);
+		//person.setId(1);
+		System.out.println("adfsadas: "+person);
+		
+		People person2 = new People();
+		person2.setName("Peter"); 
+	
+		peopleRepo.findAll();
 		
 		return person;
 	}

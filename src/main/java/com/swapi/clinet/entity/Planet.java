@@ -7,6 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -23,6 +25,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Planet implements Serializable{
 
 	@Id
+	//@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 
 	@Column(columnDefinition = "name")
@@ -35,10 +40,10 @@ public class Planet implements Serializable{
 	private String terrain;
 	private String surface_water;
 	private String population;
-	@ElementCollection(targetClass = String.class )
-	private List<Object> residents = null;
-	@ElementCollection(targetClass = String.class )
-	private List<String> films = null;
+//	@ElementCollection(targetClass = String.class )
+//	private List<Object> residents = null;
+//	@ElementCollection(targetClass = String.class )
+//	private List<String> films = null;
 	private String created;
 	private String edited;
 	private String url;
@@ -78,8 +83,8 @@ public class Planet implements Serializable{
 		this.terrain = terrain;
 		this.surface_water = surfaceWater;
 		this.population = population;
-		this.residents = residents;
-		this.films = films;
+//		this.residents = residents;
+//		this.films = films;
 		this.created = created;
 		this.edited = edited;
 		this.url = url;
@@ -214,30 +219,30 @@ public class Planet implements Serializable{
 	/**
 	 * @return the residents
 	 */
-	public List<Object> getResidents() {
-		return residents;
-	}
+//	public List<Object> getResidents() {
+//		return residents;
+//	}
 
 	/**
 	 * @param residents the residents to set
 	 */
-	public void setResidents(List<Object> residents) {
-		this.residents = residents;
-	}
+//	public void setResidents(List<Object> residents) {
+//		this.residents = residents;
+//	}
 
 	/**
 	 * @return the films
 	 */
-	public List<String> getFilms() {
-		return films;
-	}
+//	public List<String> getFilms() {
+//		return films;
+//	}
 
 	/**
 	 * @param films the films to set
 	 */
-	public void setFilms(List<String> films) {
-		this.films = films;
-	}
+//	public void setFilms(List<String> films) {
+//		this.films = films;
+//	}
 
 	/**
 	 * @return the created
@@ -284,13 +289,13 @@ public class Planet implements Serializable{
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
-	@Override
-	public String toString() {
-		return "Planet [name=" + name + ", rotation_period=" + rotation_period + ", orbital_period=" + orbital_period
-				+ ", diameter=" + diameter + ", climate=" + climate + ", gravity=" + gravity + ", terrain=" + terrain
-				+ ", surface_water=" + surface_water + ", population=" + population + ", residents=" + residents
-				+ ", films=" + films + ", created=" + created + ", edited=" + edited + ", url=" + url + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Planet [name=" + name + ", rotation_period=" + rotation_period + ", orbital_period=" + orbital_period
+//				+ ", diameter=" + diameter + ", climate=" + climate + ", gravity=" + gravity + ", terrain=" + terrain
+//				+ ", surface_water=" + surface_water + ", population=" + population + ", residents=" + residents
+//				+ ", films=" + films + ", created=" + created + ", edited=" + edited + ", url=" + url + "]";
+//	}
 
 
 }

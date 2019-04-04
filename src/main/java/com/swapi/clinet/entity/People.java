@@ -7,10 +7,13 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(
@@ -22,28 +25,58 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class People implements Serializable{
 
 	@Id
-	private Long id;
+	//@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", updatable = false, nullable = false)
+	private Integer id; 
 
-	@Column(columnDefinition = "name")
+	//@Column(columnDefinition = "name")
 	private String name;
+	
+	//@Column(columnDefinition = "height")
 	private String height;
+	
+	//@Column(columnDefinition = "mass")
 	private String mass;
+	
+	//@Column(columnDefinition = "hairColor")
 	private String hair_color;
+	
+	//@Column(columnDefinition = "skinColor")
 	private String skin_color;
+	
+	//@Column(columnDefinition = "eyeColor")
 	private String eye_color;
+	
+	//@Column(columnDefinition = "birthYear")
 	private String birth_year;
+	
+	//@Column(columnDefinition = "gender")
 	private String gender;
+	
+	//@Column(columnDefinition = "homeworld")
 	private String homeworld;
-	@ElementCollection(targetClass = String.class )
-	private List<String> films = null;
-	@ElementCollection(targetClass = String.class )
-	private List<String> species = null;
-	@ElementCollection(targetClass = String.class )
-	private List<Object> vehicles = null;
-	@ElementCollection(targetClass = String.class )
-	private List<Object> starships = null;
+	
+//	@JsonIgnore
+//	@ElementCollection(targetClass = String.class )
+//	private List<String> films = null;
+//	@JsonIgnore
+//	@ElementCollection(targetClass = String.class )
+//	private List<String> species = null;
+//	@JsonIgnore
+//	@ElementCollection(targetClass = String.class )
+//	private List<Object> vehicles = null;
+//	@JsonIgnore
+//	@ElementCollection(targetClass = String.class )
+//	private List<Object> starships = null;
+	
+	//@Column(columnDefinition = "created")
 	private String created;
+	
+	//@Column(columnDefinition = "edited")
 	private String edited;
+	
+	//@Column(columnDefinition = "url")
 	private String url;
 
 
@@ -84,15 +117,29 @@ public class People implements Serializable{
 		this.birth_year = birthYear;
 		this.gender = gender;
 		this.homeworld = homeworld;
-		this.films = films;
-		this.species = species;
-		this.vehicles = vehicles;
-		this.starships = starships;
+//		this.films = films;
+//		this.species = species;
+//		this.vehicles = vehicles;
+//		this.starships = starships;
 		this.created = created;
 		this.edited = edited;
 		this.url = url;
 	}
 
+
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
@@ -166,37 +213,37 @@ public class People implements Serializable{
 		this.homeworld = homeworld;
 	}
 
-	public List<String> getFilms() {
-		return films;
-	}
-
-	public void setFilms(List<String> films) {
-		this.films = films;
-	}
-
-	public List<String> getSpecies() {
-		return species;
-	}
-
-	public void setSpecies(List<String> species) {
-		this.species = species;
-	}
-
-	public List<Object> getVehicles() {
-		return vehicles;
-	}
-
-	public void setVehicles(List<Object> vehicles) {
-		this.vehicles = vehicles;
-	}
-
-	public List<Object> getStarships() {
-		return starships;
-	}
-
-	public void setStarships(List<Object> starships) {
-		this.starships = starships;
-	}
+//	public List<String> getFilms() {
+//		return films;
+//	}
+//
+//	public void setFilms(List<String> films) {
+//		this.films = films;
+//	}
+//
+//	public List<String> getSpecies() {
+//		return species;
+//	}
+//
+//	public void setSpecies(List<String> species) {
+//		this.species = species;
+//	}
+//
+//	public List<Object> getVehicles() {
+//		return vehicles;
+//	}
+//
+//	public void setVehicles(List<Object> vehicles) {
+//		this.vehicles = vehicles;
+//	}
+//
+//	public List<Object> getStarships() {
+//		return starships;
+//	}
+//
+//	public void setStarships(List<Object> starships) {
+//		this.starships = starships;
+//	}
 
 	public String getCreated() {
 		return created;
@@ -227,12 +274,23 @@ public class People implements Serializable{
 	 */
 	@Override
 	public String toString() {
-		return "People [name=" + name + ", height=" + height + ", mass=" + mass + ", hair_color=" + hair_color
-				+ ", skin_color=" + skin_color + ", eye_color=" + eye_color + ", birth_year=" + birth_year + ", gender="
-				+ gender + ", homeworld=" + homeworld + ", films=" + films + ", species=" + species + ", vehicles="
-				+ vehicles + ", starships=" + starships + ", created=" + created + ", edited=" + edited + ", url=" + url
-				+ "]";
+		return "People [id=" + id + ", name=" + name + ", height=" + height + ", mass=" + mass + ", hair_color="
+				+ hair_color + ", skin_color=" + skin_color + ", eye_color=" + eye_color + ", birth_year=" + birth_year
+				+ ", gender=" + gender + ", homeworld=" + homeworld + ", created=" + created + ", edited=" + edited
+				+ ", url=" + url + "]";
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	//@Override
+//	public String toString() {
+//		return "People [name=" + name + ", height=" + height + ", mass=" + mass + ", hair_color=" + hair_color
+//				+ ", skin_color=" + skin_color + ", eye_color=" + eye_color + ", birth_year=" + birth_year + ", gender="
+//				+ gender + ", homeworld=" + homeworld + ", films=" + films + ", species=" + species + ", vehicles="
+//				+ vehicles + ", starships=" + starships + ", created=" + created + ", edited=" + edited + ", url=" + url
+//				+ "]";
+//	}
 
 
 

@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 		allowGetters = true
 		)
 @Entity
-@Table(name = "starShip")
+@Table(name = "starship")
 public class StarShip implements Serializable{
 
 	@Id
@@ -38,10 +38,10 @@ public class StarShip implements Serializable{
 	private String hyperdrive_rating;
 	private String mGLT;
 	private String starship_class;
-	@ElementCollection(targetClass = String.class )
-	private List<Object> pilots = null;
-	@ElementCollection(targetClass = String.class )
-	private List<String> films = null;
+//	@ElementCollection(targetClass = String.class )
+//	private List<Object> pilots = null;
+//	@ElementCollection(targetClass = String.class )
+//	private List<String> films = null;
 	private String created;
 	private String edited;
 	private String url;
@@ -91,8 +91,8 @@ public class StarShip implements Serializable{
 		this.hyperdrive_rating = hyperdriveRating;
 		this.mGLT = mGLT;
 		this.starship_class = starshipClass;
-		this.pilots = pilots;
-		this.films = films;
+//		this.pilots = pilots;
+//		this.films = films;
 		this.created = created;
 		this.edited = edited;
 		this.url = url;
@@ -283,30 +283,30 @@ public class StarShip implements Serializable{
 	/**
 	 * @return the pilots
 	 */
-	public List<Object> getPilots() {
-		return pilots;
-	}
+//	public List<Object> getPilots() {
+//		return pilots;
+//	}
 
 	/**
 	 * @param pilots the pilots to set
 	 */
-	public void setPilots(List<Object> pilots) {
-		this.pilots = pilots;
-	}
+//	public void setPilots(List<Object> pilots) {
+//		this.pilots = pilots;
+//	}
 
 	/**
 	 * @return the films
 	 */
-	public List<String> getFilms() {
-		return films;
-	}
+//	public List<String> getFilms() {
+//		return films;
+//	}
 
 	/**
 	 * @param films the films to set
 	 */
-	public void setFilms(List<String> films) {
-		this.films = films;
-	}
+//	public void setFilms(List<String> films) {
+//		this.films = films;
+//	}
 
 	/**
 	 * @return the created
@@ -353,15 +353,15 @@ public class StarShip implements Serializable{
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
-	@Override
-	public String toString() {
-		return "StarShip [name=" + name + ", model=" + model + ", manufacturer=" + manufacturer + ", cost_in_credits="
-				+ cost_in_credits + ", length=" + length + ", max_atmosphering_speed=" + max_atmosphering_speed
-				+ ", crew=" + crew + ", passengers=" + passengers + ", cargo_capacity=" + cargo_capacity
-				+ ", consumables=" + consumables + ", hyperdrive_rating=" + hyperdrive_rating + ", mGLT=" + mGLT
-				+ ", starship_class=" + starship_class + ", pilots=" + pilots + ", films=" + films + ", created="
-				+ created + ", edited=" + edited + ", url=" + url + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "StarShip [name=" + name + ", model=" + model + ", manufacturer=" + manufacturer + ", cost_in_credits="
+//				+ cost_in_credits + ", length=" + length + ", max_atmosphering_speed=" + max_atmosphering_speed
+//				+ ", crew=" + crew + ", passengers=" + passengers + ", cargo_capacity=" + cargo_capacity
+//				+ ", consumables=" + consumables + ", hyperdrive_rating=" + hyperdrive_rating + ", mGLT=" + mGLT
+//				+ ", starship_class=" + starship_class + ", pilots=" + pilots + ", films=" + films + ", created="
+//				+ created + ", edited=" + edited + ", url=" + url + "]";
+//	}
 
 	
 }
