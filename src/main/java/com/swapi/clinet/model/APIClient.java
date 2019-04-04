@@ -59,7 +59,7 @@ public class APIClient {
 		Gson g = new Gson(); 
 		People person = g.fromJson(output, People.class);
 		System.out.println(person);
-		peopleRepo.save(person);
+		//peopleRepo.save(person);
 		
 		return person;
 	}
@@ -88,7 +88,7 @@ public class APIClient {
 		Planet planet = g.fromJson(output, Planet.class);
 		System.out.println(planet);
 		
-		planetRepo.save(planet);
+		//planetRepo.save(planet);
 
 		return planet;
 	}
@@ -117,7 +117,7 @@ public class APIClient {
 		StarShip starShip = g.fromJson(output, StarShip.class);
 		System.out.println(starShip);
 		
-		starShipRepo.save(starShip);
+		//starShipRepo.save(starShip);
 
 		return starShip;
 	}

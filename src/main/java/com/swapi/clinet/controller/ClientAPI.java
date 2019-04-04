@@ -8,7 +8,7 @@ import com.swapi.clinet.model.APIClient;
 
 
 @RestController()
-@RequestMapping("/swapi") 
+//@RequestMapping("/swapi") 
 public class ClientAPI {
 	
 	private APIClient client = new APIClient();
